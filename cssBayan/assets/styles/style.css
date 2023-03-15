@@ -1,0 +1,222 @@
+/* global styles */
+
+html,
+body {
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #26a69a;
+    background-color: #e0f2f1;
+}
+
+
+/* container and titles */
+
+.bayan {
+    flex: 1 1 auto;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 0 1rem 5rem 1rem;
+}
+
+.bayan__titles {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+}
+
+.bayan__main-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00695c;
+}
+
+
+/* items */
+
+.bayan__item {
+    border-top: 0.1rem solid #bdbdbd;
+}
+
+.bayan__input {
+    width: 0;
+    height: 0;
+    appearance: none;
+}
+
+.bayan__input:checked + .bayan__title > .bayan__meme {
+    display: block;
+}
+
+.bayan__title {
+    cursor: pointer;
+}
+
+.bayan__input:checked + .bayan__title > .bayan__title-text {
+    color: #424242;
+}
+
+.bayan__input:checked + .bayan__item > .bayan__title .bayan__picture {
+    animation: none;
+}
+
+.bayan__input:checked + .bayan__title > .bayan__title-text > .bayan__open {
+    transform: translate(-0.4em, -0.1em) rotate(45deg);
+}
+
+.bayan__input:active + .bayan__title > .bayan__title-text {
+    color: #26a69a;
+}
+
+.bayan__input:active + .bayan__title .bayan__picture {
+    opacity: 0.7;
+}
+
+.bayan__input:active + .bayan__title > .bayan__title-text > .bayan__open {
+    display: none;
+}
+
+.bayan__input:active + .bayan__title > .bayan__title-text > .bayan__close {
+    display: block;
+    transform: translate(-0.4em, -0.1em) rotate(45deg);
+}
+
+.bayan__title-text {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.bayan__text {
+    margin: 0;
+    padding: 0.01rem 0.95rem 1rem 0;
+}
+
+.bayan__open {
+    width: 1.2rem;
+    height: 1.2rem;
+    padding-bottom: 0.95rem;
+}
+
+.bayan__close {
+    display: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding-bottom: 0.95rem;
+}
+
+
+/* pictures */
+
+.bayan__meme {
+    display: none;
+}
+
+.bayan__image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.bayan__picture {
+    width: 80%;
+    animation: animate_grow 1s forwards;
+}
+
+@keyframes animate_grow {
+	0% {
+		width: 70%;
+	}
+	100% {
+		width: 80%;
+	}
+}
+
+
+/* media queries */
+
+@media screen and (min-width: 320px) {
+    .bayan__main-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .wrapper {
+        font-size: 1.1rem;
+    }
+
+    .bayan__main-title {
+        font-size: 1.8rem;
+    }
+
+    .bayan {
+        max-width: 70vw;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .bayan__open {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .wrapper {
+        font-size: 1.2rem;
+    }
+
+    .bayan__main-title {
+        font-size: 2.5rem;
+    }
+
+    .bayan__input:checked + .bayan__title > .bayan__title-text > .bayan__close {
+        display: none;
+    }
+}
+
+@media (hover: hover) {
+    .bayan:hover {
+        color: #424242;
+    }
+
+    .bayan:hover .bayan__open {
+        display: block;
+    }
+
+    .bayan__item:hover .bayan__meme {
+        display: block;
+    }
+
+    .bayan__item:hover .bayan__open {
+        transform: translate(-0.4em, -0.1em) rotate(45deg);
+        transition: transform 0.9s;
+    }
+
+    .bayan__input:checked + .bayan__item > .bayan__title:hover .bayan__picture {
+        animation: none;
+    }
+
+    .bayan:hover .bayan__input:checked + .bayan__title > .bayan__title-text > .bayan__open {
+        transform: translate(-0.4em, -0.1em) rotate(45deg);
+    }
+}
